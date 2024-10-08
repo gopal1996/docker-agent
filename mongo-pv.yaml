@@ -1,0 +1,15 @@
+# persistent volume creation
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongodb-pv
+  namespace: jenkins-ns
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: standard-rwm
+  hostPath:
+    path: /data/db # Path on the host machine where the volume is mounted

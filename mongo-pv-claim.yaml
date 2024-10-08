@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-pvc
+  namespace: jenkins-ns
+spec:
+  accessModes:
+    - ReadWriteMany # Multiple pods can read/write
+  resources:
+    requests:
+      storage: 5Gi # Check if this is enough
+  storageClassName: standard-rwm
